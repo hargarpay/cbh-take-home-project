@@ -61,7 +61,7 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 #### Task 4: Create a `generateReportByCustomId` function
 
 ##### Details
-For backward compatibility for report generation `generateReport` should not be change, `generateReportByCustomId` takes 2 paramters which are custom_id and date object ({start, end}) should handle the generating of pdf report using custom id. The custom id will be used to get the agent_id and facility_id then `getShiftsByFacilityAndAgent` should be use to get quater shifts for the facility and generate the pdf report using custom_id as the name of the file
+For backward compatibility for pdf report generation `generateReport` should not be change, `generateReportByCustomId` takes 2 paramters which are `custom_i`d and `date object ({start, end})` should handle the generating of pdf report using custom id. The custom id should be use to get the `agent_id` and `facility_id` then use `getShiftsByFacilityAndAgent` to get quater shifts for the facility and generate the pdf report using custom_id as the name of the file
 
 ##### Time
   2 hours
