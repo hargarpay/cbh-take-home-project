@@ -42,26 +42,26 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 #### Task 2:  Create a `saveAgentCustomId` function 
 
 ##### Details
-  `isCustomIdUniqueInFacility` takes 2 parameters which are `facility_id` and `custom_id` then returns a `boolean`. It should be use to check custom id already exist in the facility
+  `isFacilityCustomIdUnique` takes 2 parameters which are `facility_id` and `custom_id` then returns a `boolean`. It should be use to check custom id already exist in the facility
   `getAgentFacilityCustomId` takes 2 parameters which are `agent_id` and `facility_id` then return `null` or `id`. It should be use to get the internal id in the `agent_custom_ids` table
-  `saveAgentCustomId` takes 3 parameters which are `agent_id`, `facility_id` and `custom_id`. It should use `isCustomIdUniqueInFacility` to check if the custom_id does not exist in the facility. if the custom_id aleady exist **throw an error with custom_id already exist** but if does not exist then call `getAgentFacilityCustomId` to know if the agent already have custom_id, an internal id is return and the custom_id should be updated but if it returns `null` then custom_id should be created for the agent in the facility 
+  `saveAgentCustomId` takes 3 parameters which are `agent_id`, `facility_id` and `custom_id`. It should use `isFacilityCustomIdUnique` to check if the custom_id does not exist in the facility. if the custom_id aleady exist **throw an error with custom_id already exist** but if does not exist then call `getAgentFacilityCustomId` to know if the agent already have custom_id, an internal id is return and the custom_id should be updated but if it returns `null` then custom_id should be created for the agent in the facility 
 
 ##### Time
   4 hours
 
-#### Task 3: Create a `getShiftsByFacilityAndAgent` and `getTotalShifts` funtion
+#### Task 3: Create a `getAgentFacilityShifts` and `getTotalShifts` funtion
 
 ##### Details
-  `getShiftsByFacilityAndAgent` takes 3 parameters which are `agent_id`,`facility_id` and `date object ({start, end})`then return an array of shifts the agent did within the date range of start and end.
-  `getTotalShiftsHours` takes the return from `getShiftsByFacilityAndAgent` and sum all the hours of shifts. You can use [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) or any methods
+  `getAgentFacilityShifts` takes 3 parameters which are `agent_id`,`facility_id` and `date object ({start, end})`then return an array of shifts the agent did within the date range of start and end.
+  `getTotalShiftsHours` takes the return from `getAgentFacilityShifts` and sum all the hours of shifts. You can use [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) or any methods
 
 ##### Time
   3 hours  
 
-#### Task 4: Create a `generateReportByCustomId` function
+#### Task 4: Create a `generateCustomIdReport` function
 
 ##### Details
-For backward compatibility for pdf report generation `generateReport` should not be change, `generateReportByCustomId` takes 2 paramters which are `custom_i`d and `date object ({start, end})` should handle the generating of pdf report using custom id. The custom id should be use to get the `agent_id` and `facility_id` then use `getShiftsByFacilityAndAgent` to get quater shifts for the facility and generate the pdf report using custom_id as the name of the file
+For backward compatibility for pdf report generation `generateReport` should not be change, `generateCustomIdReport` takes 2 paramters which are `custom_id` and `date object ({start, end})` should handle the generating of pdf report using custom id. The custom id should be use to get the `agent_id` and `facility_id` then use `getAgentFacilityShifts` to get quater shifts for the facility and generate the pdf report using custom_id as the name of the file
 
 ##### Time
   2 hours
