@@ -1,9 +1,21 @@
-const { deterministicPartitionKey, getEncryptData, getStringifyData } = require("./dpk");
+const { deterministicPartitionKey,  getEncryptData, getStringifyData } = require("./dpk");
 
 describe("deterministicPartitionKey", () => {
   it("Returns the literal '0' when given no input", () => {
     const trivialKey = deterministicPartitionKey();
     expect(trivialKey).toBe("0");
+  });
+
+  it("Returns an enscryted key when given number input", () => {
+    const namber = 1;
+    const partitionKey = deterministicPartitionKey(namber);
+    expect(partitionKey).toBe(getEncryptData(getStringifyData(namber)));
+  });
+
+  it("Returns an enscryted key when given array input", () => {
+    const array = [1]
+    const trivialKey = deterministicPartitionKey(array);
+    expect(trivialKey).toBe(getEncryptData(getStringifyData(array)));
   });
 
   it("Returns the encryption of the value when given a string input", () => {
