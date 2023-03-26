@@ -8,7 +8,9 @@ exports.deterministicPartitionKey = (event) => {
   const MAX_PARTITION_KEY_LENGTH = 256;
   let candidate = event?.partitionKey;
 
-  if (event && !candidate) {
+  const hasNonEmptyInputAndNonPartitionKey = event && !candidate;
+
+  if (hasNonEmptyInputAndNonPartitionKey) {
       const data = getStringifyData(event);
       candidate = getEncryptData(data);
   }
